@@ -245,6 +245,7 @@ object ScalafmtCorePlugin extends AutoPlugin {
   )
 
   override val projectSettings = Seq(
+    resolvers += Resolver.sonatypeRepo("snapshots"),
     externalDependencyClasspath in Scalafmt := Classpaths.managedJars(Scalafmt, classpathTypes.value, update.value),
     ivyConfigurations ++= (if (scalafmtUseIvy.value) Seq(Scalafmt) else Seq.empty),
     libraryDependencies ++=
@@ -264,7 +265,7 @@ object ScalafmtCorePlugin extends AutoPlugin {
       }
       Seq(
         "com.geirsson" % s"scalafmt-core_$scalaBinaryVersion" % scalafmtVersion.value,
-        "com.lucidchart" % s"scalafmt-impl_$scalaBinaryVersion" % version
+        "io.leonard" % s"scalafmt-impl_$scalaBinaryVersion" % version
       )
     },
     scalafmtUseIvy := true
