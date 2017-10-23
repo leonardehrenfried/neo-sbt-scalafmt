@@ -3,26 +3,19 @@ import sbt.CrossVersion.binaryScalaVersion
 
 inScope(Global)(
   Seq(
-    credentials += Credentials(
-      "Sonatype Nexus Repository Manager",
-      "oss.sonatype.org",
-      sys.env.getOrElse("SONATYPE_USERNAME", ""),
-      sys.env.getOrElse("SONATYPE_PASSWORD", "")
-    ),
     developers ++= List(
       Developer("pauldraper", "Paul Draper", "", url("https://github.com/pauldraper"))
     ),
     homepage := Some(url("https://github.com/lucidsoftware/neo-sbt-scalafmt")),
     licenses += "Apache License 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"),
-    organization := "com.lucidchart",
-    PgpKeys.pgpPassphrase := Some(Array.emptyCharArray),
+    organization := "io.leonard",
     scmInfo := Some(
       ScmInfo(
         url("https://github.com/lucidsoftware/neo-sbt-scalafmt"),
         "scm:git:git@github.com:lucidsoftware/neo-sbt-scalafmt.git"
       )
     ),
-    version := sys.props.getOrElse("build.version", "0-SNAPSHOT")
+    version := "1.13.0-SNAPSHOT"
   )
 )
 
